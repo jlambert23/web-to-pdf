@@ -48,11 +48,22 @@ jobs:
         run: node ${{ matrix.build_script }}.js
         shell: bash
 
+      - name: Compress artifacts
+        shell: bash
+        run: |
+          if [ "${{ matrix.os }}" = "windows-latest" ]; then
+            7z a web-to-pdf-windows.zip web-to-pdf-windows.exe
+          elif [ "${{ matrix.os }}" = "ubuntu-latest" ]; then
+            zip web-to-pdf-linux.zip web-to-pdf-linux
+          else
+            zip web-to-pdf-macos.zip web-to-pdf-macos
+          fi
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.os }}
-          path: web-to-pdf*
+          path: web-to-pdf*.zip
 
   release:
     needs: build
@@ -73,6 +84,6 @@ jobs:
           name: Release ${{ github.ref_name }}
           generate_release_notes: true
           files: |
-            ubuntu-latest/web-to-pdf-linux
-            windows-latest/web-to-pdf-windows.exe
-            macos-latest/web-to-pdf-macos
+            ubuntu-latest/web-to-pdf-linux.zip
+            windows-latest/web-to-pdf-windows.zip
+            macos-latest/web-to-pdf-macos.zip
