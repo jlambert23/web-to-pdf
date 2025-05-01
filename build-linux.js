@@ -1,6 +1,6 @@
 const { execSync } = require("child_process");
 
-const OUTPUT_FILE = "web-to-pdf";
+const OUTPUT_FILE = "web-to-pdf-linux";
 
 execSync("pnpm run dist", { stdio: "inherit" });
 execSync("node --experimental-sea-config sea-config.json", {
