@@ -12,8 +12,7 @@ execSync(
 );
 // execSync(`signtool remove /s ${OUTPUT_FILE}.exe`, { stdio: "inherit" });
 execSync(
-  `npx postject ${OUTPUT_FILE}.exe NODE_SEA_BLOB sea-prep.blob ^
-    --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2 `,
+  `npx postject ${OUTPUT_FILE}.exe NODE_SEA_BLOB sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2 `,
   { stdio: "inherit" }
 );
 // execSync(`signtool sign /fd SHA256 ${OUTPUT_FILE}.exe`, { stdio: "inherit" });
