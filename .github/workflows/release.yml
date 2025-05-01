@@ -14,10 +14,13 @@ jobs:
         include:
           - os: ubuntu-latest
             output_name: web-to-pdf-linux
+            build_script: build-linux
           - os: windows-latest
             output_name: web-to-pdf-windows.exe
+            build_script: build-windows
           - os: macos-latest
             output_name: web-to-pdf-macos
+            build_script: build-macos
 
     steps:
       - uses: actions/checkout@v4
@@ -36,12 +39,7 @@ jobs:
         run: pnpm install
 
       - name: Build executable
-        run: |
-          if [ "${{ matrix.os }}" = "windows-latest" ]; then
-            pnpm run build-windows
-          else
-            pnpm run build
-          fi
+        run: pnpm run ${{ matrix.build_script }}
         shell: bash
 
       - name: Upload artifact
