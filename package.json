@@ -6,9 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "esbuild --format=cjs --target=node20 --platform=node --bundle --outfile=dist.js --external:typescript index.js",
-    "build": "node build.js",
-    "build-windows": "node build-windows.js"
+    "dist": "esbuild --format=cjs --target=node20 --platform=node --bundle --outfile=dist.js --external:typescript index.js"
   },
   "keywords": [],
   "author": "",

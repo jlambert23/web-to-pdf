@@ -45,7 +45,7 @@ jobs:
           sdk-version: 20348
 
       - name: Build executable
-        run: pnpm run ${{ matrix.build_script }}
+        run: node ${{ matrix.build_script }}.js
         shell: bash
 
       - name: Upload artifact
