@@ -18,19 +18,35 @@ pnpm install
 
 ## Usage
 
+### Using the Binary
+
+1. Download the appropriate binary for your operating system from the releases page
+2. Make the binary executable (on Unix-based systems):
+   ```bash
+   chmod +x web-to-pdf
+   ```
+3. Run the binary:
+   ```bash
+   ./web-to-pdf
+   ```
+4. When prompted:
+   - Enter the path to your CSV file (e.g., `input-sample.csv`)
+   - Confirm whether the site requires authentication
+   - If authentication is needed, provide your bearer token
+
+### Development Usage
+
 1. Create a CSV file with URLs (comma-separated)
 2. Run the script:
-
-```bash
-pnpm start
-```
-
+   ```bash
+   pnpm start
+   ```
 3. When prompted:
    - Enter the path to your CSV file (e.g., `input-sample.csv`)
    - Confirm whether the site requires authentication
    - If authentication is needed, provide your bearer token
 
-The script will:
+The application will:
 
 - Read the URLs from your CSV file
 - Generate a PDF for each URL
